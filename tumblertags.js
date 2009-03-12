@@ -11,7 +11,7 @@
  */
 
 (function ($) {
-
+  
   $.fn.tumblertags = function () {
     return this.each(function () {
       var $tabwrapper = $(this);
@@ -20,12 +20,15 @@
       // conlick focus input field
       $tabwrapper.click(function(){
         $inputField.focus();
-      });
-  
+      });    
+      
       // when pressing the returnkey, wraping the text of input field in a span and prepend it to the input field.
       $inputField.keypress(function(e, keyCode){
         keyCode = keyCode || e.keyCode;
-        if (keyCode == 13) {
+        if (keyCode == 8 && $inputField.val() == '') {
+          $tabwrapper.find('span:last').remove();
+        };
+        if (keyCode == 13 && $inputField.val() != '') {
           $newTag = $('<span class="tag">' + $inputField.val() + '<a href="#" title="remove tag">x</a></span>');
           $inputField.val('');
           $newTag.insertBefore($inputField).find('a').click(function() {
