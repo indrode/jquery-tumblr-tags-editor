@@ -33,7 +33,7 @@
       $inputField.keypress(function(e, keyCode){
         keyCode = keyCode || e.keyCode;
         if (keyCode == 8 && $inputField.val() == '') {
-          $tabwrapper.find('span:last').remove();
+          $tagContainer.find('span:last').remove(); // TODO does not work in safari
         };
         if (keyCode == 13 && $inputField.val() != '') {
           $newTag = $('<span class="tag">' + $inputField.val() + '<a href="#" title="remove tag">x</a></span>');
