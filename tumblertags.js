@@ -14,13 +14,20 @@
   
   $.fn.tumblertags = function () {
     return this.each(function () {
-      var $tabwrapper = $(this);
-      var $inputField = $tabwrapper.find('input')
+      var $tagEditor = $(this);
+      var $tagContainer = $(this).find('.tags-container');
+      var $inputField = $tagContainer.find('input')
   
       // conlick focus input field
-      $tabwrapper.click(function(){
+      $tagContainer.click(function(){
         $inputField.focus();
-      });    
+        $(this).addClass('focus');
+      });
+      
+      // remove the focus when input blur is fired
+      $inputField.blur(function(){
+        $tagContainer.removeClass('focus');
+      });
       
       // when pressing the returnkey, wraping the text of input field in a span and prepend it to the input field.
       $inputField.keypress(function(e, keyCode){
@@ -33,7 +40,8 @@
           $inputField.val('');
           $newTag.insertBefore($inputField).find('a').click(function() {
             $(this).parent().remove();
-          }); 
+          });
+          return false; // if contained in a form hitting return would submit the form, we want to avoid that.
         };
       });
       
