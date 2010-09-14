@@ -30,10 +30,10 @@
       });
       
       // when pressing the returnkey, wraping the text of input field in a span and prepend it to the input field.
-      $inputField.keypress(function(e, keyCode){
+      $inputField.keyup(function(e, keyCode){
         keyCode = keyCode || e.keyCode;
         if (keyCode == 8 && $inputField.val() == '') {
-          $tagContainer.find('span:last').remove(); // TODO does not work in safari
+          $tagContainer.find('span:last').remove();
         };
         if (keyCode == 13 && $inputField.val() != '') {
           $newTag = $('<span class="tag">' + $inputField.val() + '<a href="#" title="remove tag">x</a></span>');
