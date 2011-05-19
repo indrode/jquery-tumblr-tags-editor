@@ -28,7 +28,7 @@ input:focus {
   background: none;
   padding: .2em 0;
   width: 50px;
-  float: left;
+/*  float: left;*/
   }
 
 .tag-editor .tags-container {
