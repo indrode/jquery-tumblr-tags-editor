@@ -1,5 +1,5 @@
 /**
- * jquery.tumblertags 0.1. tumbler inspired tag editor
+ * jquery.tumblrtags 0.1. tumblr inspired tag editor
  *
  * Copyright (c) 2009 Christof Haemmerle (reco@nex9.com)
  *
@@ -11,7 +11,7 @@
  */
 
 (function ($) {
-    $.fn.tumblertags = function () {
+    $.fn.tumblrtags = function () {
             
         return this.each(function () {
                 
